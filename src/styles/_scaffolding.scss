@@ -1,0 +1,15 @@
+html {
+  font-size: $font-size;
+  font-family: $font-family;
+  background: $background-color;
+  color: $font-color;
+  line-height: 1.4;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
