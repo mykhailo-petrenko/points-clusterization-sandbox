@@ -25,6 +25,11 @@ export class Clusters {
 
   public add(feature: Feature<Point, DbscanProps>) {
     const clusterId = feature.properties.cluster;
+    const dbscan = feature.properties.dbscan;
+
+    if (clusterId === undefined || dbscan !== 'core') {
+      return;
+    }
 
     if (!this.hasCluster(clusterId)) {
       this.initCluster(clusterId);
@@ -54,8 +59,8 @@ export class Clusters {
 
   private clusterAsFeature(cluster: Cluster): Feature<Point, ClusterFeatureProperties> {
     const coord: Position = [
-      (cluster.bbox[0] + cluster.bbox[1]) / 2,
-      (cluster.bbox[1] + cluster.bbox[2]) / 2,
+      (cluster.bbox[0] + cluster.bbox[2]) / 2,
+      (cluster.bbox[1] + cluster.bbox[3]) / 2,
     ];
 
     return point<ClusterFeatureProperties>(
