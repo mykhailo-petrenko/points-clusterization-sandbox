@@ -3,7 +3,6 @@ import L from 'leaflet';
 
 import {MOCK_RESPONSE} from './mock_response';
 import { clustersDbscan, feature, featureCollection, Point } from '@turf/turf';
-import * as Cluster from 'cluster';
 import { Clusters } from '@/map/clusters';
 
 const map = L.map('map').setView([50.45, 30.523333], 13);
@@ -70,4 +69,6 @@ L.geoJSON(collection).addTo(map);
 
   // @TODO: Draw clusters
   console.log(clusters.count);
+
+  console.log(clusters.getClustersCollection());
 }
